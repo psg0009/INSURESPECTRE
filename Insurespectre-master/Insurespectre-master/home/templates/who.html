@@ -12,32 +12,48 @@
             font-family: Arial, sans-serif;
             background-color: #f3e9bb; /* Light yellow background */
         }
-
-        .about-section, .mission-section {
+        .full-width-section {
+            width: 100%;
+            margin: 0;
             padding: 50px 20px;
-            text-align: center;
-            margin: 10px auto; /* Center the section */
-            max-width: 800px; /* Limit the width */
+        }
+
+        .heading-section {
+            background-color: #f3e9bb; /* Light yellow background */
+            text-align: left; /* Align text to the left */
+            padding: 20px;
+        }
+
+        .heading-section h2 {
+            font-size: 3rem;
+            color: #3a1f1d; /* Dark brown color */
         }
 
         .about-section {
             background-color: #3a1f1d; /* Dark brown background */
             color: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 50px 20px;
         }
 
-        .about-section h2 {
-            font-size: 3rem;
+        .about-text {
+            max-width: 60%;
+            text-align: left;
+            font-size: 1.5rem; /* Increased font size */
+            line-height: 1.5; /* Increased line height for better readability */
         }
 
         .about-section p {
-            font-size: 1.2rem;
+            margin-bottom: 20px;
         }
 
         .about-section img {
-            max-width: 60%;
+            max-width: 40%;
             height: auto;
             border-radius: 8px;
-            margin-top: 20px;
+            margin-left: 20px;
         }
 
         .underline {
@@ -45,103 +61,56 @@
         }
 
         .mission-section {
-            background-color: #f3e9bb; /* Dark brown background */
-            color: #0e0c07;
-        }
-
-        .mission-section h2 {
-            font-size: 3rem;
-            color: #0e0c07;
-        }
-
-        .mission-section p {
-            font-size: 1.2rem;
-        }
-
-        .container {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-        }
-
-        .text-section {
-            flex: 1;
-            padding: 20px;
-            max-width: 50%;
-        }
-
-        .image-section {
-            flex: 1;
-            padding: 20px;
-            max-width: 50%;
-        }
-
-        .image-section img {
-            max-width: 60%;
-            height: auto;
-            border-radius: 2px;
-        }
-
-        .values-section {
-            padding: 50px 20px;
-            max-width: 1200px;
-            margin: auto;
             background-color: #f3e9bb; /* Light yellow background */
-        }
-
-        .values-section h2 {
-            text-align: left;
-            font-size: 3rem;
-            color: #3a1f1d;
-            margin-bottom: 40px;
-        }
-
-        .value-box {
-            text-align: left;
-            margin-bottom: 30px;
-            flex: 1;
-        }
-
-        .value-box img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 2px;
-        }
-
-        .value-box h3 {
-            font-size: 1.5rem;
-            margin-top: 15px;
-            color: #3a1f1d;
-        }
-
-        .value-box p {
-            font-size: 1.2rem;
-            color: #3a1f1d;
-        }
-
-        .container-values {
-            display: flex;
-            justify-content: space-between;
-            gap:20px;
-        }
-        .values-section {
-            padding: 50px 20px;
-            text-align: center;
+            color: #333;
             margin: 20px auto;
             max-width: 1200px; /* Center the section */
+            padding: 50px 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .mission-text {
+            flex: 1;
+            padding-right: 40px; /* Added more padding for spacing */
+            text-align: left;
+        }
+
+        .mission-text h2 {
+            font-size: 3rem;
+            color: #333;
+        }
+
+        .mission-text p {
+            font-size: 2rem; /* Increased font size */
+        }
+
+        .mission-image {
+            flex: 1;
+            text-align: right;
+        }
+
+        .mission-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .values-section {
             background-color: #3a1f1d; /* Dark brown background */
-            color: white; /* Text color */
+            color: white;
+            text-align: center;
+            padding: 50px 20px;
         }
 
         .values-section h2 {
             font-size: 3rem;
-            color: white; /* Text color */
+            color: white;
         }
 
         .values-section p {
             font-size: 1.2rem;
-            color: white; /* Text color */
+            color: white;
         }
 
         .values-section img {
@@ -149,6 +118,57 @@
             height: auto;
             border-radius: 8px;
             margin-top: 20px;
+        }
+
+        .container-values {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .value-box {
+            text-align: center;
+            margin-bottom: 30px;
+            flex: 1;
+        }
+
+        .value-box img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .value-box h3 {
+            font-size: 1.5rem;
+            margin-top: 15px;
+            color: white;
+        }
+
+        .value-box p {
+            font-size: 1.2rem;
+            color: white;
+        }
+
+        .looking-ahead-section {
+            background-color: #f3e9bb; /* Light yellow background */
+            color: #333;
+            text-align: left;
+            padding: 50px 20px;
+            max-width: 1200px;
+            margin: 20px auto;
+            text-align: left;
+        }
+
+        .looking-ahead-section h2 {
+            font-size: 3rem;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .looking-ahead-section p {
+            font-size: 1.5rem;
+            line-height: 1.5;
         }
     </style>
 </head>
@@ -160,7 +180,6 @@
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
@@ -169,41 +188,56 @@
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="{% url 'index' %}">Home</a>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            About
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="{% url 'who' %}">Who We Are</a></li>
-                            <li><a class="dropdown-item" href="{% url 'what' %}">What We Do</a></li>
-                            <li><a class="dropdown-item" href="{% url 'goal' %}">Our Goal</a></li>
-                        </ul>
-                    </li>
+                    
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'solution' %}">Solution</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Login</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{% url 'signup' %}">Sign Up</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">Logout</a></li>
+                        <a class="nav-link" href="{% url 'who' %}">About</a></li>
+                        
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'team' %}">Team</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'contact' %}">Contact</a></li>
+                </ul>
+                <ul class="navbar-nav ms-auto">
+                    {% if user.is_authenticated %}
+                        <li class="nav-item">
+                            <span class="navbar-text">Hello, {{ user.username }}</span>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+                        </li>
+                    {% else %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'login' %}">Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'signup' %}">Sign Up</a>
+                        </li>
+                    {% endif %}
                 </ul>
             </div>
         </div>
     </nav>
 
-    <div class="about-section">
+    <div class="heading-section">
         <h2>About us</h2>
-        <p>At <a href="{% url 'about' %}" class="underline">InsureSpectre LLC</a>, we help you secure your future with the right insurance solutions.</p>
+    </div>
+
+    <div class="about-section full-width-section">
+        <div class="about-text">
+            <p>At InsureSpectre LLC, we help you secure your future with the right insurance solutions. Our platform addresses the critical need for accurate and integrated risk data in the insurance industry. Traditionally fragmented and inaccessible data has hindered precise insurance assessments and pricing.</p>
+            <p>By providing a comprehensive, real-time view of risk factors, InsureSpectre enables insurers to make more accurate underwriting decisions, ultimately improving profitability and reducing loss ratios.</p>
+        </div>
         <img src="{% static 'photo6.jpg' %}" alt="About Us Image">
     </div>
 
-    <div class="container">
-        <div class="mission-section">
-            <div class="content">
-                <h2>Our mission</h2>
-                <p>Our mission is to empower individuals and businesses by providing reliable insurance solutions that offer peace of mind, financial security, and a brighter future.</p>
-            </div>
+    <div class="mission-section">
+        <div class="mission-text">
+            <h2>Our mission</h2>
+            <p>Our mission is to empower individuals and businesses by providing reliable insurance solutions that offer peace of mind, financial security, and a brighter future.</p>
         </div>
-        <div class="image-section">
-            <img src="{% static 'photo7.jpg' %}" alt="About Us Image 2">
+
+        <div class="mission-image">
+            <img src="{% static 'photo7.jpg' %}" alt="Our Mission Image">
         </div>
     </div>
     <div class="values-section full-width-section">
@@ -232,11 +266,18 @@
         </div>
     </div>
 
+    <div class="looking-ahead-section">
+        <div class="about-text">
+        <h2>Looking Ahead</h2>
+        <p>Our future plans include expanding our data sources, enhancing our AI algorithms, and continuing to innovate in the field of insurance risk assessment. We aim to stay at the forefront of technology and provide our clients with the best possible tools to improve their underwriting processes.</p>
+        </div>
+    </div>
 
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 InsureSpectre. All rights reserved.</p>
+        </div>
+    </footer>
 
-
-
-   
-   
 </body>
 </html>

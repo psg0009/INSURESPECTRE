@@ -76,3 +76,9 @@ def signup_view(request):
     else:
         form = SignUpForm()
     return render(request, 'signup.html', {'form': form})
+
+def team(request):
+    return render(request, 'team.html')
+
+def contact(request):
+    return render(request, 'contact.html')
