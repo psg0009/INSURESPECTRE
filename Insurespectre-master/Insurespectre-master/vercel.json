@@ -1,13 +1,13 @@
 {
   "builds": [{
-      "src": "Insurespectre/wsgi.py",
+      "src": "Insurespectre-master/Insurespectre-master/Insurespectre/wsgi.py",
       "use": "@vercel/python",
       "config": { "maxLambdaSize": "15mb", "runtime": "python3.9" }
   }],
   "routes": [
       {
           "src": "/(.*)",
-          "dest": "Insurespectre/wsgi.py"
+          "dest": "Insurespectre-master/Insurespectre-master/Insurespectre/wsgi.py"
       }
   ]
 }
