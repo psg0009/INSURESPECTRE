@@ -170,6 +170,55 @@
             font-size: 1.5rem;
             line-height: 1.5;
         }
+
+        .team-section {
+            padding: 50px 20px;
+            text-align: left; /* Align text to the left */
+            margin: 20px 20px; /* Margin to the left */
+            max-width: 1200px;
+            background-color: #f3e9bb; /* Light yellow background */
+            display: flex;
+            gap: 20px;
+            justify-content: space-between;
+        }
+
+        .team-section h2 {
+            font-size: 3rem;
+            color: #333;
+            margin-bottom: 40px;
+            width: 100%;
+        }
+
+        .team-member {
+            display: flex;
+            align-items: center;
+            background-color: white;
+            padding: 20px; /* Increased padding */
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            flex: 1;
+            max-width: 400px; /* Increased max-width */
+        }
+
+        .team-member img {
+            width: 200px; /* Increased image size */
+            height: 200px;
+            border-radius: 50%;
+            margin-right: 20px;
+        }
+
+        .team-member h3 {
+            font-size: 2rem; /* Increased font size */
+            color: #333;
+            margin: 0;
+        }
+
+        .team-member p {
+            font-size: 1.5rem; /* Increased font size */
+            color: #666;
+            margin: 10px 0 0 0;
+        }
+
     </style>
 </head>
 
@@ -240,6 +289,7 @@
             <img src="{% static 'photo7.jpg' %}" alt="Our Mission Image">
         </div>
     </div>
+    
     <div class="values-section full-width-section">
         <h2>Our values</h2>
         <div class="container-values">
@@ -270,6 +320,31 @@
         <div class="about-text">
         <h2>Looking Ahead</h2>
         <p>Our future plans include expanding our data sources, enhancing our AI algorithms, and continuing to innovate in the field of insurance risk assessment. We aim to stay at the forefront of technology and provide our clients with the best possible tools to improve their underwriting processes.</p>
+        </div>
+    </div>
+    
+    <div class="team-section">
+        <h2>The Team</h2>
+        <div class="team-member">
+            <img src="{% static 'psg.jpg' %}" alt="Parth Gosar">
+            <div>
+                <h3>Parth Gosar</h3>
+                <p>CEO and Co-Founder</p>
+            </div>
+        </div>
+        <div class="team-member">
+            <img src="{% static 'path_to_image2.jpg' %}" alt="Mantavya Mahajan">
+            <div>
+                <h3>Mantavya Mahajan</h3>
+                <p>COO and Co-Founder</p>
+            </div>
+        </div>
+        <div class="team-member">
+            <img src="{% static 'path_to_image3.jpg' %}" alt="Edwin Clatus">
+            <div>
+                <h3>Edwin Clatus</h3>
+                <p>CTO and Co-Founder</p>
+            </div>
         </div>
     </div>
 

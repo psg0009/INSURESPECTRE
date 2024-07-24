@@ -18,8 +18,8 @@
         .team-section {
             padding: 50px 20px;
             text-align: left; /* Align text to the left */
-            margin: 20px auto;
-            max-width: 800px;
+            margin: 20px 20px; /* Margin to the left */
+            max-width: 2000px;
             background-color: #f3e9bb; /* Light yellow background */
         }
 
@@ -30,29 +30,32 @@
         }
 
         .team-member {
-            text-align: left; /* Align text to the left */
-            margin-bottom: 30px;
-            background-color: white;
-            padding: 20px;
-            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            margin-bottom: 0px; /* Reduced margin-bottom */
+            background-color: #f3e9bb;
+            padding: 0px 0px; /* Reduced padding */
+            border-radius: 0px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
         .team-member img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 50%;
-            margin-bottom: 15px;
+            width: 400px; /* Increased image size */
+            height: 400px;
+            border-radius: 500%;
+            margin-right: 20px;
         }
 
         .team-member h3 {
-            font-size: 1.5rem;
+            font-size: 1.8rem; /* Adjusted font size */
             color: #333;
+            margin: 0;
         }
 
         .team-member p {
-            font-size: 1.2rem;
+            font-size: 1.2rem; /* Adjusted font size */
             color: #666;
+            margin: 10px 0 0 0;
         }
     </style>
 </head>
@@ -104,19 +107,25 @@
     <div class="team-section">
         <h2>The Team</h2>
         <div class="team-member">
-            <img src="path_to_image1.jpg" alt="Amit Sharma">
-            <h3>Parth Gosar</h3>
-            <p>CEO and Co-Founder</p>
+            <img src="{% static 'psg.jpg' %}" alt="Parth Gosar">
+            <div>
+                <h3>Parth Gosar</h3>
+                <p>CEO and Co-Founder</p>
+            </div>
         </div>
         <div class="team-member">
-            <img src="path_to_image2.jpg" alt="Nisha Patel">
-            <h3>Edwin Clatus</h3>
-            <p>COO and Co-Founder</p>
+            <img src="{% static 'path_to_image2.jpg' %}" alt="Mantavya Mahajan">
+            <div>
+                <h3>Mantavya Mahajan</h3>
+                <p>COO and Co-Founder</p>
+            </div>
         </div>
         <div class="team-member">
-            <img src="path_to_image3.jpg" alt="Ravi Kumar">
-            <h3>Mantavya Mahajan</h3>
-            <p>CTO and Co-Founder</p>
+            <img src="{% static 'path_to_image3.jpg' %}" alt="Edwin Clatus">
+            <div>
+                <h3>Edwin Clatus</h3>
+                <p>CTO and Co-Founder</p>
+            </div>
         </div>
     </div>
 </body>
