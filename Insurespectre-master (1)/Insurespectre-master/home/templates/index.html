@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InsureSpectre</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <style>
+        .video-background {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+        .hero-section {
+            position: relative;
+            height: 60vh;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6));
+        }
+        #hero-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.4);
+            z-index: -1;
+        }
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 0;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            padding: 20px;
+            text-align: center;
+            animation: fadeIn 2s ease-in-out;
+        }
+        .hero-content h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        .hero-content p {
+            font-size: 1.5rem;
+            color: #f8f9fa;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+        .hero-content .tagline {
+            font-size: 1.2rem;
+            margin-top: 1rem;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+        .hero-content .btn {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            border-radius: 25px;
+            transition: background-color 0.3s;
+        }
+        .hero-content .btn:hover {
+            background-color: #0056b3;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        .feature-box {
+            background: #ffffff;
+            padding: 20px;
+            margin: 10px 0;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+            min-height: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            opacity: 2000;
+            transform: translateY(50px);
+        }
+        .feature-box:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        }
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 15px;
+        }
+        footer {
+            background: #f8f9fa;
+            padding: 20px;
+            text-align: center;
+        }
+        footer .nav {
+            justify-content: center;
+        }
+        #background-video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transform: translate(-50%, -50%);
+            z-index: -1;
+        }
+        .content {
+            position: relative;
+            z-index: 1;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        .about-section {
+            max-width: 100px;
+            margin: auto;
+            text-align: center;
+            padding: 40px;
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+        .about-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #343a40;
+        }
+        .about-section p {
+            font-size: 1.2rem;
+            color: #6c757d;
+            line-height: 1.6;
+        }
+        .about-section a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        .about-section a {
+            text-decoration: underline;
+            color: inherit;
+        }
+        .about-section a:hover {
+            color: #007bff;
+        }
+        .vertical-feature-boxes {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .vertical-feature-boxes .feature-box {
+            width: 80%;
+            margin-bottom: 20px;
+            min-height: 10px;
+        }
+        .feature-navigation {
+            margin-top: 10px;
+        }
+        .feature-navigation .icon {
+            font-size: 2rem;
+            color: #708fb1;
+            cursor: pointer;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s forwards;
+        }
+        .feature-navigation .icon:nth-child(2) {
+            animation-delay: 0.6s;
+        }
+        .feature-navigation .icon:nth-child(4) {
+            animation-delay: 1s;
+        }
+        .feature-navigation .icon:hover {
+            color: #375575fa;
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        footer {
+            background: #f8f9fa;
+            padding: 20px;
+            text-align: center;
+        }
+        footer .nav {
+            justify-content: center;
+        }
+        .about-section {
+            padding: 50px 20px;
+            background-color: #7d11ea; /* Background color to match the rest of the page */
+        }
+
+        .about-section h6 {
+            font-size: 3rem;
+            color: #333;
+        }
+
+        .about-section p {
+            font-size: 1.2rem;
+            color: #555;
+        }
+
+        .about-section img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 3px;
+        }
+        .vertical-feature-boxes {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .vertical-feature-boxes .feature-box {
+            width: 80%;
+            margin-bottom: 20px;
+        }
+        .horizontal-feature-boxes {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        .horizontal-feature-boxes .feature-box {
+            width: 22%;
+            margin: 10px 0;
+        }
+        
+        .call-to-action {
+            background: #2b0603;
+            color: white;
+            text-align: center;
+            padding: 50px 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+        .call-to-action h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        .call-to-action p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+        .call-to-action .btn {
+            font-size: 1.2rem;
+            padding: 10px 20px;
+            border-radius: 15px;
+            background-color: white;
+            color: #007bff;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .call-to-action .btn:hover {
+            background-color: #0056b3;
+            color: white;
+        }
+        body.bg-custom {
+            background-color: #f7f1e3;
+            color: #333;
+        }
+        .container.custom {
+            border: 0px solid #6c757d;
+            border-radius: 2px;
+            padding: 10px;
+            background-color: #f7f1e3;;
+        }
+        img.img-fluid {
+            border-radius: 3px;
+        }
+
+        img.img-fluid.custom-height {
+            height: 500px; /* Adjust the height as needed */
+            object-fit: fill;
+        }
+        .cta-section {
+            background-color: #3b1e1e; /* Dark brown background color */
+            color: white;
+            text-align: center;
+            padding: 50px 20px;
+        }
+        .cta-section h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+
+        .features-section h2 {
+            font-size: 3rem;
+            color: #333;
+        }
+
+        .features-section .feature-box {
+            background: #ffffff;
+            padding: 20px;
+            margin: 10px 0;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: left;
+            min-height: 10px; /* Ensures equal height */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .features-section .feature-box:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        
+        }
+        .navbar-nav .nav-item .navbar-text, .navbar-nav .nav-item .nav-link {
+            display: flex;
+            align-items: center;
+            height: 100%;
+        }
+    </style>
+</head>
+</head>
+<body class="bg-custom">
+    <nav class="navbar navbar-expand-sm bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">InsureSpectre</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <img src="{% static 'photo.jpg' %}" style="width: 60px;height: 40px;">
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{% url 'index' %}">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            About
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="{% url 'who' %}">Who We Are</a></li>
+                            <li><a class="dropdown-item" href="{% url 'what' %}">What We Do</a></li>
+                            <li><a class="dropdown-item" href="{% url 'goal' %}">Our Goal</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'solution' %}">Solution</a></li>
+                </ul>
+                <ul class="navbar-nav ms-auto">
+                    {% if user.is_authenticated %}
+                        <li class="nav-item">
+                            <span class="navbar-text">Hello, {{ user.username }}</span>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+                        </li>
+                    {% else %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'login' %}">Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'signup' %}">Sign Up</a>
+                        </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="video-background">
+        <div class="hero-section">
+            <video autoplay muted loop id="background-video">
+                <source src="{% static 'homev.mp4' %}" type="video/mp4">
+                Your browser does not support HTML5 video.
+            </video>
+            <div class="overlay"></div>
+            <div class="hero-content content">
+                <h1>Find Your Coverage Today</h1>
+                <p>We make it easy to find the right insurance for you.</p>
+                
+                <a href="{% url 'signup' %}" class="btn btn-primary">Get Started</a>
+            </div>
+        </div>
+    </div>
+    <div class="container custom mt-5">
+        <div class="row">
+            <div class="col-lg-6">
+                <h1>Secure Your Future with InsureSpectre LLC</h1>
+                <h7>InsureSpectre offers personalized insurance solutions. Our system works with you to find the best coverage, ensuring peace of mind.</h7>
+            </div>
+            <div class="col-lg-6">
+                <img src="{% static 'photo1.jpg' %}" alt="Airplane Window" class="img-fluid custom-height">
+            </div>
+        </div>
+    </div>
+    
+    <div class="container mt-5">
+        <section id="services" class="text-left">
+            <h1>Services </h1>
+            <div class="horizontal-feature-boxes mt-4">
+                <div class="feature-box">
+                    <img src="{% static 'photo2.jpg' %}" alt="Service Image" class="img-fluid">
+                    <h3>Domestic Student Insurance Plan</h3>
+                    <p>The system works with you to find comprehensive health insurance plans tailored specifically for students to ensure their well-being during their academic journey.</p>
+                </div>
+                <div class="feature-box">
+                    <img src="{% static 'photo3.jpg' %}" alt="Service Image" class="img-fluid">
+                    <h3>International Student Insurance Plan</h3>
+                    <p>The system works with you to find comprehensive health insurance plans tailored specifically for international students to ensure their well-being during their academic journey in another country.</p>
+                </div>
+                <div class="feature-box">
+                    <img src="{% static 'photo4.jpg' %}" alt="Service Image" class="img-fluid">
+                    <h3>Apartment Insurance</h3>
+                    <p>We help you find the right coverage to protect your apartment and belongings against unforeseen events.</p>
+                </div>
+                <div class="feature-box">
+                    <img src="{% static 'photo5.jpg' %}" alt="Service Image" class="img-fluid ">
+                    <h3>Vehicle Insurance</h3>
+                    <p>We help you find the right vehicle insurance plans that offer protection for your car.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+    <br>
+    <section class="cta-section">
+        <h1>Protect Your Future Today</h1>
+        <p>Gain peace of mind with comprehensive insurance plans. We offer solutions crafted with your needs in mind.</p>
+    </section>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-lg-6">
+                <h2>About <a href="{% url 'about' %}">InsureSpectre</a></h2>
+                <p>InsureSpectre is an advanced insurance risk assessment platform designed to enhance the accuracy and efficiency of the insurance process.</p>
+                <p>Our platform addresses the critical need for accurate and integrated risk data in the insurance industry..</p>
+            </div>
+            <div class="col-lg-6">
+                <img src="{% static 'Logo.jpg' %}" alt="About Us Image" class="img-fluid custom-height">
+            </div>
+        </div>
+    </div>
+        
+    <div class="container mt-5 features-section">
+        <h2>Key Features</h2>
+        <div class="feature-box mt-4">
+            <h3>Real-Time Risk Assessment</h3>
+            <p>Provides immediate insights based on the latest data.</p>
+        </div>
+        <div class="feature-box mt-4">
+            <h3>Comprehensive Data Analysis</h3>
+            <p>Integrates multiple risk factors for a holistic view.</p>
+        </div>
+        <div class="feature-box mt-4">
+            <h3>User-Friendly Interface</h3>
+            <p>Easy to navigate and interpret complex data.</p>
+        </div>
+    </div>
+    <br>
+    <br>
+    
+    <br>
+    <br>
+    <br>
+    <section id="call-to-action" class="call-to-action">
+        <h2>Get Started with InsureSpectre</h2>
+        <p>Sign up now to start leveraging the power of AI for your insurance risk assessments.</p>
+        <a href="{% url 'signup' %}" class="btn">Sign Up</a>
+    </section>
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 InsureSpectre. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
