@@ -357,18 +357,14 @@
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="{% url 'index' %}">Home</a>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            About
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="{% url 'who' %}">Who We Are</a></li>
-                            <li><a class="dropdown-item" href="{% url 'what' %}">What We Do</a></li>
-                            <li><a class="dropdown-item" href="{% url 'goal' %}">Our Goal</a></li>
-                        </ul>
-                    </li>
+                    
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'solution' %}">Solution</a></li>
+                        <a class="nav-link" href="{% url 'who' %}">About</a></li>
+                        
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'team' %}">Team</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'contact' %}">Contact</a></li>
                 </ul>
                 <ul class="navbar-nav ms-auto">
                     {% if user.is_authenticated %}
