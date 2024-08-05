@@ -5,8 +5,11 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib import messages
 from .forms import SignUpForm
+from django.core.mail import send_mail
+from django.conf import settings
 from django.contrib.auth.models import User
-
+from django.views.decorators.csrf import csrf_exempt
+from django.http import HttpResponse,JsonResponse
 
 def index(request):
     return render(request, 'index.html')
@@ -80,5 +83,31 @@ def signup_view(request):
 def team(request):
     return render(request, 'team.html')
 
+@csrf_exempt
 def contact(request):
+    if request.method == "POST":
+        name = request.POST.get('name')
+        email = request.POST.get('email')
+        message = request.POST.get('message')
+        
+        full_message = f"Message from {name} ({email}):\n\n{message}"
+        
+        # Send email to the site owner
+        send_mail(
+            subject="Contact Form Message",
+            message=full_message,
+            from_email=settings.EMAIL_HOST_USER,
+            recipient_list=['support@insurespectre.com'],
+        )
+        
+        # Send thank you email to the user
+        thank_you_message = f"Dear {name},\n\nThank you for contacting Insurespectre. We have received your message and will get back to you shortly.\n\nBest regards,\nInsurespectre Team"
+        send_mail(
+            subject="Thank You for Contacting",
+            message=thank_you_message,
+            from_email=settings.EMAIL_HOST_USER,
+            recipient_list=[email],
+        )
+        
+        return JsonResponse({"message": "Message sent successfully!"})
     return render(request, 'contact.html')
