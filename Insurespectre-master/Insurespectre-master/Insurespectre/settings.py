@@ -142,7 +142,7 @@ AUTHENTICATION_BACKENDS = [
 ]
 
 AUTH_USER_MODEL = 'auth.User'
-LOGIN_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = 'insurance_search'
 
 # Email settings
 

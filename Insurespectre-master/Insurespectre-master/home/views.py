@@ -1,7 +1,6 @@
-# myapp/views.py
-
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib import messages
 from .forms import SignUpForm
@@ -12,6 +11,8 @@ from django.conf import settings
 from django.contrib.auth.models import User
 from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponse,JsonResponse
+from .models import HealthInsurance 
+from django.shortcuts import render, get_object_or_404
 
 def index(request):
     return render(request, 'index.html')
@@ -32,7 +33,7 @@ def login_view(request):
             if user is not None:
                 login(request, user)
                 messages.success(request, 'Login successful')
-                return redirect('index')
+                
             else:
                 # Check if the username exists
                 if not User.objects.filter(username=form.cleaned_data.get('username')).exists():
@@ -71,13 +72,16 @@ def signup_view(request):
             elif User.objects.filter(email=email).exists():
                 messages.error(request, 'Email already exists')
             else:
-                form.save()
+                # Save the user
+                form.save()  # This will save the user to the database
                 password = form.cleaned_data.get('password1')
                 user = authenticate(username=username, password=password)
                 if user is not None:
                     login(request, user)
                     messages.success(request, 'Signup successful')
-                    return redirect('index')
+                    return redirect('insurance_search')  # Redirect to the insurance search page
+        else:
+            messages.error(request, "Form validation failed. Please check the entered information.")
     else:
         form = SignUpForm()
     return render(request, 'signup.html', {'form': form})
@@ -132,3 +136,37 @@ def contact(request):
             return JsonResponse({"message": f"Failed to send message: {e}"})
 
     return render(request, 'contact.html')
+
+@login_required
+def insurance_search(request):
+    insurance_plans = HealthInsurance.objects.all()
+
+    # Get filter values from the request
+    search_term = request.GET.get('search', '')
+    category_filter = request.GET.get('category', '')
+    location_filter = request.GET.get('location', '')
+
+    # Filter by search term
+    if search_term:
+        insurance_plans = insurance_plans.filter(plan_name__icontains=search_term)
+
+    # Filter by category
+    if category_filter:
+        insurance_plans = insurance_plans.filter(category=category_filter)
+
+    # Filter by location
+    if location_filter:
+        insurance_plans = insurance_plans.filter(location=location_filter)
+
+    context = {
+        'insurance_plans': insurance_plans,
+        'search_term': search_term,
+        'category_filter': category_filter,
+        'location_filter': location_filter,
+    }
+    return render(request, 'insurance_search.html', context)
+
+@login_required
+def plan_detail(request, id):
+    plan = get_object_or_404(HealthInsurance, id=id)
+    return render(request, 'plan_detail.html', {'plan': plan})

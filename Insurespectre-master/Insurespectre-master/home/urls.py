@@ -14,5 +14,8 @@ urlpatterns = [
     path('about/goal/', views.goal, name='goal'),
     path('about', views.about, name='about'),
     path('solution', views.solution, name='solution'),
+    path('health-insurance/', views.insurance_search, name='insurance_search'),
+    path('plan/<int:id>/', views.plan_detail, name='plan_detail')
+
 ]
 
