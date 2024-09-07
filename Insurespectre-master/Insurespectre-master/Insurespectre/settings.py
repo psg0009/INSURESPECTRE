@@ -142,4 +142,13 @@ AUTHENTICATION_BACKENDS = [
 ]
 
 AUTH_USER_MODEL = 'auth.User'
-LOGIN_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = 'insurance_search'
+
+# Email settings
+
+EMAIL_HOST = 'smtp.hostinger.com'
+EMAIL_PORT = 465
+EMAIL_USE_TLS = False
+EMAIL_USE_SSL = True
+EMAIL_HOST_USER = 'support@insurespectre.com'
+EMAIL_HOST_PASSWORD = 'ASDFGHJKl@456'
