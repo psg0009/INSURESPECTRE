@@ -76,10 +76,11 @@ def signup_view(request):
                 form.save()  # This will save the user to the database
                 password = form.cleaned_data.get('password1')
                 user = authenticate(username=username, password=password)
+                
                 if user is not None:
                     login(request, user)
                     messages.success(request, 'Signup successful')
-                    return redirect('insurance_search')  # Redirect to the insurance search page
+                    return redirect('index')  # Redirect to the insurance search page
         else:
             messages.error(request, "Form validation failed. Please check the entered information.")
     else:
